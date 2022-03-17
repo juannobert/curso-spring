@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_products")
@@ -23,7 +26,9 @@ public class Product {
 	private Double price;
 	private String imageUrl;
 	
-	@Transient
+	@ManyToMany
+	@JoinTable(name = "products_categories", joinColumns = @JoinColumn(name = "product_id"),
+	inverseJoinColumns = @JoinColumn(name = "Category_id"))
 	private Set<Category> categories = new HashSet<>();
 	
 	public Product() {
