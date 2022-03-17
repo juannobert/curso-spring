@@ -9,4 +9,5 @@ import com.cursojava.curso.entities.Order;
 // Comunica o banco de dados
 public interface OrderRepository extends JpaRepository<Order,Long> {
 	
+	
 }
