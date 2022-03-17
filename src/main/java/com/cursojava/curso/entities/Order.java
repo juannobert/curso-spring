@@ -73,22 +73,23 @@ public class Order implements Serializable{
 		this.client = client;
 	}
 
+	public OrderStatus getOrderStatus() {
+		return OrderStatus.valueOf(orderStatus);
+	}
+
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus.getCode();
+	}
+
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
 	
 	
-
-	public OrderStatus getOrderStatus() {
-		return OrderStatus.valueOf(orderStatus);
-	}
-
-
-
-	public void setOrderStatus(OrderStatus orderStatus) {
-		this.orderStatus = orderStatus.getCode();
-	}
 
 
 

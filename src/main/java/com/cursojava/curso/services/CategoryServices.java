@@ -6,26 +6,26 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cursojava.curso.entities.Order;
-import com.cursojava.curso.repositories.OrderRepository;
+import com.cursojava.curso.entities.Category;
+import com.cursojava.curso.repositories.CategoryRepository;
 
 
 @Service // Registra o componente no Spring como serviço
-public class OrderServices {
+public class CategoryServices {
 	
 	@Autowired
-	OrderRepository orderRepository;
+	CategoryRepository categoryRepository;
 	
-	public List<Order> findAll(){
-		return orderRepository.findAll();
+	public List<Category> findAll(){
+		return categoryRepository.findAll();
 	}
 	
-	public Order findById(Long id) {
+	public Category findById(Long id) {
 		/*
 		 * O Optional nos ajuda a evitar os erros NullPointerException, tirar a necessidade da verificação 
 		 * (if x != null) e também a escrever um código com menos linhas e mais bonito.
 		 */
-		Optional<Order> obj =  orderRepository.findById(id);
+		Optional<Category> obj =  categoryRepository.findById(id);
 		return obj.get();
 	}
 }
