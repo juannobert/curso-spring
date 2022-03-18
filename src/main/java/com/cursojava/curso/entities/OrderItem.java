@@ -7,13 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.cursojava.curso.entities.pk.OrderItemPk;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem {
 
 	@EmbeddedId
-	private OrderItemPk id;
+	private OrderItemPk id = new OrderItemPk();
 	
 	private Integer quantity;
 	
@@ -42,6 +43,7 @@ public class OrderItem {
 		return price;
 	}
 	
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}

@@ -2,7 +2,9 @@ package com.cursojava.curso.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.cursojava.curso.entities.enums.OrderStatus;
@@ -32,6 +35,9 @@ public class Order implements Serializable{
 	private User client;
 	
 	private Integer orderStatus;
+	
+	@OneToMany(mappedBy = "id.order")
+	private Set<OrderItem> items = new HashSet<>();
 	
 	public Order() {
 		// TODO Auto-generated constructor stub
@@ -81,9 +87,17 @@ public class Order implements Serializable{
 	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus.getCode();
 	}
+	
+	
 
 	
 	
+	public Set<OrderItem> getItems() {
+		return items;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
