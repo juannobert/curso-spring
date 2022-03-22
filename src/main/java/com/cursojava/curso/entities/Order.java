@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import com.cursojava.curso.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_order")
@@ -37,7 +38,7 @@ public class Order implements Serializable{
 	private Integer orderStatus;
 	
 	@OneToMany(mappedBy = "id.order")
-	private Set<OrderItem> items = new HashSet<>();
+	private Set<OrderItem> itens = new HashSet<>();
 	
 	public Order() {
 		// TODO Auto-generated constructor stub
@@ -90,10 +91,8 @@ public class Order implements Serializable{
 	
 	
 
-	
-	
-	public Set<OrderItem> getItems() {
-		return items;
+	public Set<OrderItem> getItens() {
+		return itens;
 	}
 
 

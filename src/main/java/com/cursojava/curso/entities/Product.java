@@ -12,7 +12,10 @@ import javax.persistence.JoinColumn;
 
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_products")
@@ -31,6 +34,9 @@ public class Product {
 	inverseJoinColumns = @JoinColumn(name = "Category_id"))
 	private Set<Category> categories = new HashSet<>();
 	
+	
+	@OneToMany(mappedBy = "id.product")
+	private Set<OrderItem> items = new HashSet<>();
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
@@ -87,7 +93,14 @@ public class Product {
 	public Set<Category> getCategories() {
 		return categories;
 	}
-
+	@JsonIgnore
+	public Set<Order> getOrder(){
+		Set<Order> order = new HashSet<>();
+		for(OrderItem o : items) {
+			order.add(o.getOrder());
+		}
+		return order;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

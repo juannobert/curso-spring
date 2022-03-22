@@ -51,6 +51,8 @@ public class OrderItem {
 	public void setOrder(Order order) {
 		id.setOrder(order);
 	}
+	
+	
 	public Product getProduct() {
 		return id.getProduct();
 	}
