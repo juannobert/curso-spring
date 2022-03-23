@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cursojava.curso.entities.User;
 import com.cursojava.curso.repositories.UserRepository;
+import com.cursojava.curso.services.exceptions.ResourceNotFoundException;
 
 
 @Service // Registra o componente no Spring como serviço
@@ -26,7 +27,7 @@ public class UserServices {
 		 * (if x != null) e também a escrever um código com menos linhas e mais bonito.
 		 */
 		Optional<User> obj =  userRepository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public User save(User obj) {
