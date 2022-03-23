@@ -36,6 +36,7 @@ public class Product {
 	
 	
 	@OneToMany(mappedBy = "id.product")
+	@JsonIgnore
 	private Set<OrderItem> items = new HashSet<>();
 	public Product() {
 		// TODO Auto-generated constructor stub
@@ -93,7 +94,8 @@ public class Product {
 	public Set<Category> getCategories() {
 		return categories;
 	}
-	@JsonIgnore
+	
+	
 	public Set<Order> getOrder(){
 		Set<Order> order = new HashSet<>();
 		for(OrderItem o : items) {
