@@ -1996,3 +1996,36 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 11:36:03.192
 !MESSAGE executing callback sts4.classpath.JRJgsaXm SUCCESS [done]
+
+!ENTRY org.eclipse.jface 2 0 2022-06-17 11:45:25.586
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-06-17 11:45:25.586
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.togglelinecommentcommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3111372c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1e256e10,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 11:45:27.917
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.JRJgsaXm
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 11:45:27.919
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.JRJgsaXm
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 11:45:27.920
+!MESSAGE subsribers = {sts4.classpath.WnVEpPTn=Send Classpath Notifications(239)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 11:45:27.921
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.JRJgsaXm => OK
